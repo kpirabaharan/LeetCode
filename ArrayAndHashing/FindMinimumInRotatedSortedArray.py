@@ -3,25 +3,17 @@ from typing import List
 
 
 def findMin(nums: List[int]) -> int:
-    res = nums[0]
     l, r = 0, len(nums) - 1
 
-    while l <= r:
-        if nums[l] < nums[r]:
-            if nums[l] < res:
-                res = nums[l]
-            break
-
+    while l < r:
         m = (l + r) // 2
-        if nums[m] < res:
-            res = nums[m]
 
-        if nums[m] >= nums[l]:
-            l = m + 1
+        if nums[m] < nums[r]:
+            r = m
         else:
-            r = m - 1
+            l = m + 1
 
-    return res
+    return nums[l]
 
 
 nums = [11, 13, 15, 17]

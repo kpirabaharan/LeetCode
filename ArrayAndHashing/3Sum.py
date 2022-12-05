@@ -4,33 +4,26 @@ from typing import List
 
 def threeSum(nums: List[int]) -> List[List[int]]:
     result = []
-    boo = False
+    nums.sort()
 
-    nums = sorted(nums)
-
-    for target in range(len(nums) - 2):
-        if target > 0 and nums[target] == nums[target - 1]:
+    for i, v in enumerate(nums):
+        if i > 0 and v == nums[i - 1]:
             continue
 
-        l, r = target + 1, len(nums) - 1
+        l, r = i + 1, len(nums) - 1
 
         while l < r:
-            total = nums[l] + nums[r]
-            totalTarget = -1 * nums[target]
+            total = v + nums[l] + nums[r]
 
-            if total < totalTarget:
+            if total < 0:
                 l += 1
-                boo = False
-            if total > totalTarget:
+            elif total > 0:
                 r -= 1
-                boo = True
-            if total == totalTarget:
-                if [nums[target], nums[l], nums[r]] not in result:
-                    result.append([nums[target], nums[l], nums[r]])
-                if boo == False:
+            else:
+                result.append([v, nums[l], nums[r]])
+                l += 1
+                while nums[l] == nums[l - 1] and l < r:
                     l += 1
-                else:
-                    r -= 1
 
     return result
 
@@ -38,4 +31,4 @@ def threeSum(nums: List[int]) -> List[List[int]]:
 nums = [-4, -1, -1, 0, 1, 2]
 nums1 = [0, 0, 0, 0]
 # nums = [-1, 0, 1, 2, -1, -4]
-print(threeSum(nums=nums1))
+print(threeSum(nums=nums))

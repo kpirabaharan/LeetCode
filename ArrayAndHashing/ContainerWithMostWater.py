@@ -4,18 +4,17 @@ import time
 
 
 def maxArea(height: List[int]) -> int:
-    global_max = 0
-    lp, rp = 0, len(height) - 1
-    while lp < rp:
-        local_area = (rp - lp) * min(height[lp], height[rp])
-        if local_area > global_max:
-            global_max = local_area
-        if height[lp] >= height[rp]:
-            rp -= 1
-        else:
-            lp += 1
+    res, i, j = 0, 0, len(height) - 1
 
-    return global_max
+    while i < j:
+        if height[i] <= height[j]:
+            res = max(res, height[i] * (j - i))
+            i += 1
+        else:
+            res = max(res, height[j] * (j - i))
+            j -= 1
+
+    return res
 
 
 def maxAreaBrute(height: List[int]) -> int:

@@ -10,7 +10,6 @@ def maxSubArray(nums: List[int]) -> int:
         local_max = max(i, i + local_max)
         if local_max > global_max:
             global_max = local_max
-        print(local_max, global_max)
 
     return global_max
 

@@ -1,5 +1,6 @@
 #  242. Valid Anagram
-from collections import Counter
+from collections import Counter, defaultdict
+
 
 def isAnagram1(s: str, t: str):
     sArr = []
@@ -50,6 +51,25 @@ def isAnagram3(s: str, t: str):
     return Counter(s) == Counter(t)
 
 
+def isAnagram4(s: str, t: str):
+    sdict = defaultdict(lambda: 0)
+    tdict = defaultdict(lambda: 0)
+
+    if len(s) != len(t):
+        return False
+
+    for ch in s:
+        sdict[ch] += 1
+
+    for ch in t:
+        tdict[ch] += 1
+
+    if sdict == tdict:
+        return True
+    else:
+        return False
+
+
 s = "anagram"
 t = "nagaram"
-print(isAnagram3(s, t))
+print(isAnagram4(s, t))

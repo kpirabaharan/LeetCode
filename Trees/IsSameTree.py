@@ -9,7 +9,7 @@ class Node:
 
     # Print the tree
     def printTree(self):
-        print(self.value)
+        print(self.val)
         if self.left:
             self.left.printTree()
         if self.right:

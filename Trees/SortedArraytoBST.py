@@ -19,9 +19,6 @@ class TreeNode:
 
 def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
     l, r = 0, len(nums) - 1
-    m = (l + r) // 2
-
-    top = TreeNode(nums[m])
 
     def addNode(root, l, r):
         m = (l + r) // 2
@@ -33,10 +30,7 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
 
         return root
 
-    if l <= m - 1:
-        top.left = addNode(top.left, l, m - 1)
-    if r >= m + 1:   
-        top.right = addNode(top.right, m + 1, r)
+    top = addNode(TreeNode(nums[l + r // 2]), l, r)
 
     return top
 

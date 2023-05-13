@@ -10,7 +10,7 @@ def longestCommonPrefix(strs: List[str]) -> str:
     preMatch = ""
     length = len(match)
 
-    for i in range(len(strs)):
+    for i in range(len(strs[0])):
         for ind, s in enumerate(strs):
             if s[0:length] == match:
                 continue

@@ -4,6 +4,19 @@ from typing import List
 
 
 def longestCommonPrefix(strs: List[str]) -> str:
+    shortest = min(strs)
+
+    ret = ""
+    for i in range(len(shortest)):
+        for string in strs:
+            if string[i] != shortest[i]:
+                return ret
+        ret += shortest[i]
+
+    return ret
+
+
+def longestCommonPrefixFirst(strs: List[str]) -> str:
     if len(strs[0]) == 0 or len(strs) == 1:
         return strs[0]
     match = strs[0][0]

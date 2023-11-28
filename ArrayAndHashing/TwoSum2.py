@@ -1,12 +1,13 @@
 # 167 Two Sum II
+# Only works if sorted
 from typing import List
 
 
-def twoSum(numbers: List[int], target: int) -> List[int]:
-    l, r = 0, len(numbers) - 1
+def twoSum(nums: List[int], target: int) -> List[int]:
+    l, r = 0, len(nums) - 1
 
     while l < r:
-        curr = numbers[l] + numbers[r]
+        curr = nums[l] + nums[r]
         if curr == target:
             return [l + 1, r + 1]
         elif curr > target:

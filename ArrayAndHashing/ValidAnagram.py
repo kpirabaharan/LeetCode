@@ -69,7 +69,29 @@ def isAnagram4(s: str, t: str):
     else:
         return False
 
+def isAnagram5(self, s: str, t: str) -> bool:
+        first = {}
+        second = {}
+        
+        if len(s) != len(t):
+            return False
+
+        for i in range(97, 123):
+            first[i] = 0
+            second[i] = 0
+
+        for ch in s:
+            first[ord(ch)] += 1
+
+        for ch in t:
+            second[ord(ch)] += 1
+        
+        if first == second:
+            return True
+        else:
+            return False
+
 
 s = "anagram"
 t = "nagaram"
-print(isAnagram4(s, t))
+print(isAnagram5(s, t))

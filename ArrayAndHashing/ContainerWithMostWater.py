@@ -5038,7 +5038,7 @@ height3 = [
 
 start_time = time.time()
 print(maxArea(height3))
-print(time.time() - start_time)
+print(f"Time Elapsed: {round(time.time() - start_time, 2)}s")
 start_time = time.time()
 print(maxAreaBrute(height3))
-print(time.time() - start_time)
+print(f"Time Elapsed: {round(time.time() - start_time, 2)}s")
